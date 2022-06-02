@@ -1,0 +1,160 @@
+<div class="container-sm col-sm-12" style="margin-top: 5rem;">
+  <div class="row">
+    <div class="col-sm-6">
+      <ul class="list-group list-group-flush" ng-repeat="previousapt in previousapts">
+        <li class="list-group-item"><span
+            style="font-size: 1.4rem; font-weight: 500;">Appointment With :</span><span style="font-size: 1.25rem; font-weight: 500;"> {{previousapt.drname}}</span><br></span><span
+            style="font-size: 1.25rem;">Appointment Date : {{previousapt.apt_date}}<br><span style="color: green; font-size: 1.4rem; font-weight: bold;"> {{previousapt.status}}</span></span><button class="btn btn-warning"
+            style="float: right;" ng-click="viewprescription($index)" data-bs-toggle="modal"
+            data-bs-target="#viewpresmodal">View Prescription</button>
+          <!-- Modal -->
+          <div class="modal fade" id="viewpresmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">YOUR PRESCRIPTION</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <style>
+                    label {
+                      font-size: 1.25rem;
+                    }
+                  </style>
+                  
+                  <div style="background: rgba(252, 186, 18, 0.1); padding-bottom: 3rem">
+                    <div
+                      class="container-fluid mt-4"
+                      style="
+                        border: none;
+                        border-radius: 2rem;
+                        background: rgba(0, 114, 145, 0.4);
+                        padding-top: 1.5rem;
+                        padding-bottom: 2rem;
+                        padding-right: 1rem;
+                        padding-left: 1rem;
+                      "
+                    >
+                      <fieldset>
+                        <legend style="font-size: 2rem">Patient Details</legend>
+                        <hr />
+                        <div class="row mb-3">
+                          <div class="col-sm-6">
+                            <label for="ptname" class="form-label">Name :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="ptname"
+                              value="{{viewpresdata.ptname}}"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-sm-6">
+                            <label for="ptmobile" class="form-label">Mobile :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="ptmobile"
+                              value="{{viewpresdata.ptphone}}"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label for="ptage" class="form-label">Age :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="ptage"
+                              value="{{viewpresdata.ptage}}"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-sm-6">
+                            <label for="ptDob" class="form-label">Date of Birth :</label>
+                            <input type="text" class="form-control" id="ptdob" value="{{viewpresdata.ptdob}}" disabled readonly />
+                          </div>
+                        </div>
+                      </fieldset>
+                      <fieldset>
+                        <legend style="font-size: 2rem; margin-top: 1.5rem">
+                          Medication Details
+                        </legend>
+                        <hr />
+                        <div class="row mb-4">
+                          <div class="col-sm-4">
+                            <label for="apDate" class="form-label">Appointment Date :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="apDate"
+                              value="{{viewpresdata.apt_date}}"
+                            />
+                          </div>
+                        </div>
+                        <div class="row mb-4">
+                          <div class="col-sm-12">
+                            <label for="medicine" class="form-label"
+                              >Medication Name, Dosage & Frequency :</label
+                            >
+                            <textarea
+                              class="form-control"
+                              id="exampleFormControlTextarea1"
+                              rows="6"
+                              style="resize: none"
+                            >{{viewpresdata.medications_pr}}</textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <span class="input-group-text">Required<br />Lab Tests</span>
+                              <textarea
+                                class="form-control"
+                                aria-label=""
+                                rows="5"
+                                style="resize: none"
+                              >{{viewpresdata.tests_pr}}</textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul class="list-group list-group-flush" ng-repeat="rejectapt in rejectapts">
+        <li class="list-group-item"><span
+            style="font-size: 1.4rem; font-weight: 500;">Appointment With :</span><span style="font-size: 1.25rem; font-weight: 500;"> {{rejectapt.drname}}</span><br></span><span
+            style="font-size: 1.25rem;">Appointment Date : {{rejectapt.apt_date}}<br><span style="color: red; font-size: 1.4rem; font-weight: bold;"> {{rejectapt.status}}</span></span><button class="btn btn-primary"
+            style="float: right;" data-bs-toggle="modal"
+            data-bs-target="#viewreasonmodal" ng-click="rejectindex($index)">View Reason</button>
+          <!-- Modal -->
+          <div class="modal fade" id="viewreasonmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Reason for Rejection</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <span style="font-size: 1.2rem;">{{resmsg.reason}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

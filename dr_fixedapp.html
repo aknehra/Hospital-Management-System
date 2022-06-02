@@ -1,0 +1,458 @@
+<div style="background: rgba(252, 186, 18, 0.2); padding-bottom: 32rem;">
+    <h1 style="color: rgba(34, 72, 85, 1); margin-left: 2rem; padding-top: 1rem">
+        Fixed Appointments
+    </h1>
+    <h1 ng-show="nulldata" style="text-align: center; margin-top: 4rem;">-- No Data to Show --</h1>
+    <div class="container-sm mt-4">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col" ng-repeat="fixedappointment in fixedappointments">
+                <div class="card h-100" style="border-radius: 2rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b style="font-size: 1.2rem;">Patient Name :</b><span
+                                    style="float: right; font-size: 1.4rem;">{{fixedappointment.ptname}}</span></li>
+                            <li class="list-group-item"><b style="font-size: 1.2rem;">Appointment Details --</b><br><b
+                                    style="font-size: 1.2rem;">Date :</b><span
+                                    style="font-size: 1.2rem;">&nbsp;&nbsp;{{fixedappointment.apt_date}}</span><span
+                                    style="float: right;"><b style="font-size: 1.2rem;">Time :</b><span
+                                        style="font-size: 1.2rem;">&nbsp;&nbsp;{{fixedappointment.time_app}}</span></span>
+                            </li>
+
+                            <li class="list-group-item"><button type="button" class="btn btn-info" style="float: left;"
+                                    data-bs-toggle="modal" data-bs-target="#drview"
+                                    ng-click="viewappformfixed($index)">View Appointment Form</button>
+                                <div class="modal fade" id="drview" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true" ng-repeat="fixedappointment in fixedappointments">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Appointment Form</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-sm col-sm-12 mt-3 mb-5" style="
+                        border: 2px solid white;
+                        border-radius: 1rem;
+                        background: rgba(0, 114, 145, 0.4);
+                        padding: 2rem;
+                        margin-bottom: 0rem;
+    ">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 mb-3">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="font-size: 1.1em">Name
+                                                                :</label>
+                                                            <input class="form-control" type="text"
+                                                                value="&nbsp;{{drfixviewdata.ptname }}"
+                                                                aria-label="Disabled input example" disabled readonly />
+                                                        </div>
+                                                        <div class="col-sm-6 mb-3">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="font-size: 1.1em">Age :</label>
+                                                            <input class="form-control" type="text"
+                                                                value="&nbsp;{{drfixviewdata.ptage}}"
+                                                                aria-label="Disabled input example" disabled readonly />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 mb-3">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="font-size: 1.1em">Email
+                                                                :</label>
+                                                            <input class="form-control" type="email"
+                                                                value="&nbsp;{{drfixviewdata.ptemail}}"
+                                                                aria-label="Disabled input example" disabled readonly />
+                                                        </div>
+                                                        <div class="col-sm-6 mb-5">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="font-size: 1.1em">Mobile
+                                                                :</label>
+                                                            <input class="form-control" type="tel"
+                                                                value="&nbsp;{{drfixviewdata.ptmobile}}"
+                                                                aria-label="Disabled input example" disabled readonly />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label"
+                                                                style="font-size: 1.25em; margin-bottom: 3%;">Symptoms:</label>
+                                                            <textarea class="form-control" id="symptoms" rows="4"
+                                                                style="resize: none" value="{{drviewapp.symptoms}}"
+                                                                disabled readonly>{{drfixviewdata.symptoms}}</textarea>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                        </div>
+                                                        <fieldset>
+                                                            <legend>Appointment Details</legend>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <label for="appDate" class="form-label"
+                                                                        style="font-weight: bold">Date</label>
+                                                                    <input class="form-control" type="text"
+                                                                        value="&nbsp;{{drfixviewdata.date_app}}"
+                                                                        aria-label="Disabled input example" disabled
+                                                                        readonly />
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <label for="formGroupExampleInput"
+                                                                        class="form-label"
+                                                                        style="font-weight: bold">Time
+                                                                        Slot</label>
+                                                                    <input class="form-control" type="text"
+                                                                        value="&nbsp;{{drfixviewdata.time_app}}"
+                                                                        aria-label="Disabled input example" disabled
+                                                                        readonly />
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-info" style="float: right;" data-bs-toggle="modal"
+                                    data-bs-target="#drfixviewmed" ng-click="drfixedviewmed($index)">View
+                                    Medical
+                                    History</button>
+                                <div class="modal fade" id="drfixviewmed" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="medhistory">Medical History Form</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid" style="
+                                                  margin-top: 2rem;
+                                                  margin-bottom: 2rem;
+                                                  border: none;
+                                                  border-radius: 1rem;
+                                                  padding-top: 1rem;
+                                                  padding-bottom: 1rem;
+                                                  padding-left: 2rem;
+                                                  padding-right: 2rem;
+                                                  background-color: rgba(0, 114, 145, 0.9);
+                                                ">
+                                                    <center>
+                                                        <h1 class="mb-2" style="color: #fcba12">Medical History Form
+                                                        </h1>
+                                                    </center>
+                                                    <hr />
+                                                    <fieldset>
+                                                        <legend style="color: #fcba12; font-size: 2em;">Patient General
+                                                            Information --</legend>
+                                                        <div class="row">
+                                                            <div class="col-sm-3 mb-3">
+                                                                <label for="formGroupExampleInput" class="form-label"
+                                                                    style="color: white;">Name *</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drfixviewmeddata.ptname}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                            <div class="col-sm-3 mb-3">
+                                                                <label for="formGroupExampleInput" class="form-label"
+                                                                    style="color: white;">Gender
+                                                                    *</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drfixviewmeddata.ptgender}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                            <div class="col-sm-3 mb-3">
+                                                                <label for="formGroupExampleInput" class="form-label"
+                                                                    style="color: white;">Age *</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drfixviewmeddata.ptage}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                            <div class="col-sm-3 mb-3">
+                                                                <label for="formGroupExampleInput" class="form-label"
+                                                                    style="color: white;">Date Of Birth
+                                                                    *</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drfixviewmeddata.ptdob}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <div class="row">
+                                                        <div class="mb-4 col-sm-6">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="color: white;">Patient Height
+                                                                (cm) *</label>
+                                                            <input type="text" class="form-control" id="ptHeight"
+                                                                placeholder="&nbsp;Ex: 176"
+                                                                value="&nbsp;{{drfixviewmeddata.height}}" disabled
+                                                                readonly />
+                                                        </div>
+                                                        <div class="mb-4 col-sm-6">
+                                                            <label for="formGroupExampleInput" class="form-label"
+                                                                style="color: white;">Patient Weight
+                                                                (kg) *</label>
+                                                            <input type="text" class="form-control" id="ptWeight"
+                                                                placeholder="&nbsp;Ex: 60"
+                                                                value="&nbsp;{{drfixviewmeddata.weight}}" disabled
+                                                                readonly />
+                                                        </div>
+                                                    </div>
+                                                    <fieldset>
+                                                        <legend style="color: #fcba12; font-size: 2em;">Medical History
+                                                            --</legend>
+                                                        <hr />
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="mb-4">
+                                                                    <label for="exampleFormControlTextarea1"
+                                                                        class="form-label"
+                                                                        style="font-size: 1.25em; color: white;">Please
+                                                                        List any Drug Allergies :</label>
+                                                                    <textarea class="form-control" id="allergy" rows="6"
+                                                                        style="resize: none" disabled
+                                                                        readonly>{{drfixviewmeddata.drug_all}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="mb-3">
+                                                                <label for="exampleFormControlTextarea1"
+                                                                    class="form-label"
+                                                                    style="font-size: 1.25em; color: white;">Illnesses
+                                                                    You Had :</label>
+                                                                <textarea class="form-control"
+                                                                    id="exampleFormControlTextarea1" rows="4"
+                                                                    style="resize: none">{{drfixviewmeddata.illness}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <div class="mb-3">
+                                                                <label for="exampleFormControlTextarea1"
+                                                                    class="form-label"
+                                                                    style="font-size: 1.25em; color: white;">Please list
+                                                                    any Operations and Dates of Each
+                                                                    :</label>
+                                                                <textarea class="form-control"
+                                                                    id="exampleFormControlTextarea1" rows="4"
+                                                                    style="resize: none">{{drfixviewmeddata.operations}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="mb-4">
+                                                                <label for="exampleFormControlTextarea1"
+                                                                    class="form-label"
+                                                                    style="font-size: 1.25em; color: white;">Please list
+                                                                    your Current Medications:</label>
+                                                                <textarea class="form-control"
+                                                                    id="exampleFormControlTextarea1" rows="4"
+                                                                    style="resize: none">{{drfixviewmeddata.medications}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <fieldset>
+                                                        <legend style="color: #fcba12; font-size: 2em;">Healthy &
+                                                            Unhealthy Habits</legend>
+                                                        <hr />
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="mb-5">
+                                                                    <label for="exampleFormControlTextarea1"
+                                                                        class="form-label"
+                                                                        style="font-size: 1.25em; color: white;">Please
+                                                                        Specify In Detail :</label>
+                                                                    <textarea class="form-control"
+                                                                        id="exampleFormControlTextarea1" rows="6"
+                                                                        style="resize: none;">{{drfixviewmeddata.habits}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <div class="row">
+                                                        <div class="col-sm-9">
+                                                            <div class="mb-5">
+                                                                <label for="exampleFormControlTextarea1"
+                                                                    class="form-label"
+                                                                    style="font-size: 1.25em; color: white;">Include
+                                                                    other comments regarding your Medical
+                                                                    History :</label>
+                                                                <textarea class="form-control"
+                                                                    id="exampleFormControlTextarea1" rows="6"
+                                                                    style="resize: none">{{drfixviewmeddata.extrainfo}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-9"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-warning" style="margin-top: 1rem; float: left;"
+                                    ng-click="uploadpres($index)" data-bs-toggle="modal"
+                                    data-bs-target="#prescriptionupload">Upload Prescription</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="prescriptionupload" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Upload Prescription</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <style>
+                                                    label {
+                                                      font-size: 1.25rem;
+                                                    }
+                                                  </style>
+                                                  
+                                                  <div style="background: rgba(252, 186, 18, 0.1); padding-bottom: 3rem">
+                                                    <h1 style="color: #224855; margin-left: 2rem; padding-top: 1rem">
+                                                      Upload Prescription
+                                                    </h1>
+                                                    <div
+                                                      class="container-fluid mt-4"
+                                                      style="
+                                                        border: none;
+                                                        border-radius: 2rem;
+                                                        background: rgba(0, 114, 145, 0.4);
+                                                        padding-top: 1.5rem;
+                                                        padding-bottom: 2rem;
+                                                        padding-right: 1rem;
+                                                        padding-left: 1rem;
+                                                      "
+                                                    >
+                                                      <fieldset>
+                                                        <legend style="font-size: 2rem">Patient Details</legend>
+                                                        <hr />
+                                                        <div class="row mb-3">
+                                                          <div class="col-sm-6">
+                                                            <label for="ptname" class="form-label">Name :</label>
+                                                            <input
+                                                              type="text"
+                                                              class="form-control"
+                                                              id="ptname"
+                                                              value="{{presdata.ptname}}"
+                                                              disabled
+                                                              readonly
+                                                            />
+                                                          </div>
+                                                          <div class="col-sm-6">
+                                                            <label for="ptmobile" class="form-label">Mobile :</label>
+                                                            <input
+                                                              type="text"
+                                                              class="form-control"
+                                                              id="ptmobile"
+                                                              value="{{presdata.ptphone}}"
+                                                              disabled
+                                                              readonly
+                                                            />
+                                                          </div>
+                                                        </div>
+                                                        <div class="row">
+                                                          <div class="col-sm-6">
+                                                            <label for="ptage" class="form-label">Age :</label>
+                                                            <input
+                                                              type="text"
+                                                              class="form-control"
+                                                              id="ptage"
+                                                              value="{{presdata.ptage}}"
+                                                              disabled
+                                                              readonly
+                                                            />
+                                                          </div>
+                                                          <div class="col-sm-6">
+                                                            <label for="ptDob" class="form-label">Date of Birth :</label>
+                                                            <input type="text" class="form-control" id="ptdob" value="{{presdata.ptdob}}" disabled readonly />
+                                                          </div>
+                                                        </div>
+                                                      </fieldset>
+                                                      <fieldset>
+                                                        <legend style="font-size: 2rem; margin-top: 1.5rem">
+                                                          Medication Details
+                                                        </legend>
+                                                        <hr />
+                                                        <div class="row mb-4">
+                                                          <div class="col-sm-4">
+                                                            <label for="apDate" class="form-label">Appointment Date :</label>
+                                                            <input
+                                                              type="text"
+                                                              class="form-control"
+                                                              id="apDate"
+                                                              value="{{presdata.apt_date}}"
+                                                            />
+                                                          </div>
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                          <div class="col-sm-12">
+                                                            <label for="medicine" class="form-label"
+                                                              >Medication Name, Dosage & Frequency :</label
+                                                            >
+                                                            <textarea
+                                                              class="form-control"
+                                                              id="exampleFormControlTextarea1"
+                                                              rows="6"
+                                                              ng-model="medname"
+                                                              style="resize: none"
+                                                            ></textarea>
+                                                          </div>
+                                                        </div>
+                                                        <div class="row">
+                                                          <div class="col-sm-8">
+                                                            <div class="input-group">
+                                                              <span class="input-group-text">Required<br />Lab Tests</span>
+                                                              <textarea
+                                                                class="form-control"
+                                                                aria-label=""
+                                                                rows="5"
+                                                                style="resize: none"
+                                                                ng-model="labtest"
+                                                              ></textarea>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </fieldset>
+                                                      <center>
+                                                        <button
+                                                          type="button"
+                                                          class="btn btn-warning btn-lg"
+                                                          style="margin-top: 2rem"
+                                                          ng-click="drupload(medname, labtest);"
+                                                          data-bs-dismiss="modal"
+                                                        >
+                                                          Upload Prescription
+                                                        </button>
+                                                      </center>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

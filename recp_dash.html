@@ -1,0 +1,102 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+<nav
+  class="navbar fixed-top"
+  style="margin-top: 0rem; height: 4rem; background: #fcba12; position: static"
+>
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      href="#"
+      style="color: rgb(0, 114, 145); font-size: 1.5rem; font-weight: bold"
+      >Receptionist's Dashboard</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+      style="background-color: rgb(78, 125, 138)"
+      ng-click="patname()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h3
+          class="offcanvas-title"
+          id="offcanvasNavbarLabel"
+          style="margin-top: 1rem"
+        >
+          Welcome!<br />
+          <!-- {{name}} -->
+        </h3>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <center>
+          <ul
+            class="navbar-nav justify-content-end flex-grow-1 pe-3"
+            style="padding-left: 1rem; font-size: 1.5rem; margin-top: 1rem"
+          >
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link active" aria-current="page" ui-sref="recp_dash"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="recp_dash.profile" ng-click="profile"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="recp_dash.drlist">Doctors Listed</a>
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="recp_dash.ptlist">Patients Listed</a>
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="recp_dash.appRequest" style="position: relative;"
+                >Appointment Requests<span class="position-absolute top-1 start-99 translate-middle badge rounded-pill" style="height: 4vh; width: 3vw; text-align: center; background: white; color: red;">
+                  {{recpnotify.length}}
+                <span class="visually-hidden">unread messages</span>
+              </a
+              >
+            </li>
+            <li class="nav-item">
+              <button
+                type="button"
+                class="btn btn-lg btn-danger"
+                ng-click="logout()"
+              >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </center>
+      </div>
+    </div>
+  </div>
+</nav>
+<div ui-view></div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+  crossorigin="anonymous"
+></script>

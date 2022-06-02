@@ -1,0 +1,838 @@
+<style>
+  label {
+    color: white;
+  }
+  legend {
+    color: #fcba12;
+    font-size: 2em;
+  }
+  hr {
+    color: black;
+  }
+</style>
+
+<div
+  class="container-sm col-sm-8"
+  style="
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: rgba(0, 114, 145, 0.9);
+  "
+>
+  <center>
+    <h1 class="mb-2" style="color: #fcba12">Medical History Form</h1>
+  </center>
+  <hr />
+  <fieldset>
+    <legend>Patient General Information --</legend>
+    <div class="row">
+      <div class="col-sm-3 mb-3">
+        <label for="formGroupExampleInput" class="form-label">Name *</label>
+        <input
+          class="form-control"
+          type="text"
+          value="&nbsp;{{name}}"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+        />
+      </div>
+      <div class="col-sm-3 mb-3">
+        <label for="formGroupExampleInput" class="form-label">Gender *</label>
+        <input
+          class="form-control"
+          type="text"
+          value="&nbsp;{{gender}}"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+        />
+      </div>
+      <div class="col-sm-3 mb-3">
+        <label for="formGroupExampleInput" class="form-label">Age *</label>
+        <input
+          class="form-control"
+          type="text"
+          value="&nbsp;{{age}}"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+        />
+      </div>
+      <div class="col-sm-3 mb-3">
+        <label for="formGroupExampleInput" class="form-label"
+          >Date Of Birth *</label
+        >
+        <input
+          class="form-control"
+          type="text"
+          value="&nbsp;{{dob}}"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+        />
+      </div>
+    </div>
+  </fieldset>
+  <div class="row">
+    <div class="mb-4 col-sm-6">
+      <label for="formGroupExampleInput" class="form-label"
+        >Patient Height (cm) *</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        id="ptHeight"
+        placeholder="&nbsp;Ex: 176"
+        ng-model="ptHeight"
+      />
+    </div>
+    <div class="mb-4 col-sm-6">
+      <label for="formGroupExampleInput" class="form-label"
+        >Patient Weight (kg) *</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        id="ptWeight"
+        placeholder="&nbsp;Ex: 60"
+        ng-model="ptWeight"
+      />
+    </div>
+  </div>
+  <fieldset>
+    <legend>Medical History --</legend>
+    <hr />
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="mb-4">
+          <label
+            for="exampleFormControlTextarea1"
+            class="form-label"
+            style="font-size: 1.25em"
+            >Please List any Drug Allergies :</label
+          >
+          <textarea
+            class="form-control"
+            id="allergy"
+            rows="6"
+            style="resize: none"
+            ng-model="allergy"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <!-- <div class="row">
+    <div class="mb-1">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.25em"
+        >Have you ever had (Please check all that apply)</label
+      >
+    </div>
+  </div> -->
+  <!-- <div class="row mb-4">
+    <div class="col-sm-4">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Anaemia"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Anameia </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Asthma"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Asthma </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Arthritis"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Arthritis
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Cancer"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Cancer </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Gout"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Gout </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Diabetes"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Diabetes
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Emotional_Disorder"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Emotional Disorder
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Epilepsy_Seizures"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Epilepsy Seizures
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Fainting_Spells"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Fainting Spells
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Gallstones"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Gallstones
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Heart_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Heart Disease
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Heart_Attack"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Heart Attack
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Veneral_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Venereal Disease
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Neurological_Disorders"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Neurological Disorders
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Rheumatic_Fever"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Rheumatic Fever
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.High_Blood_Pressure"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          High Blood Pressure
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Digestive_Problems"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Digestive Problems
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Ulcerative_Colitis"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Ulcerative Colitis
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Ulcer_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Ulcer Disease
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Hepatitis"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Hepatitis
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Kidney_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Kidney Disease
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Liver_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Liver Disease
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Sleep_Apnea"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Sleep Apnea
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Use_a_C_PAP_machine"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Use a C-PAP machine
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Thyroid_Problems"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Thyroid Problems
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Tuberculosis"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Tuberculosis
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Bleeding_Disorders"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Bleeding Disorders
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          ng-model="disease.Lung_Disease"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Lung Disease
+        </label>
+      </div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-3">
+        <label
+          for="exampleFormControlTextarea1"
+          class="form-label"
+          style="font-size: 1.25em"
+          >Illnesses You Had :</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="4"
+          style="resize: none"
+          ng-model="illness"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="mb-3">
+        <label
+          for="exampleFormControlTextarea1"
+          class="form-label"
+          style="font-size: 1.25em"
+          >Please list any Operations and Dates of Each :</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="4"
+          style="resize: none"
+          ng-model="operation"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mb-4">
+        <label
+          for="exampleFormControlTextarea1"
+          class="form-label"
+          style="font-size: 1.25em"
+          >Please list your Current Medications:</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="4"
+          style="resize: none"
+          ng-model="medication"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <fieldset>
+    <legend>Healthy & Unhealthy Habits</legend>
+    <hr />
+    <div class="row">
+      <!-- <div class="col-sm-4">
+        <div class="mb-4">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-size: 18px"
+            >Exercise (Weekly)</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exerise"
+              value="never"
+            />
+            <label class="form-check-label" for="exampleRadios1"> Never </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exercise"
+              value="1-2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              1-2 days
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exercise"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              3-4 days
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exercise+"
+              value="5+"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              5+ days
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="mb-4">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-size: 18px"
+            >Eating followig a diet</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="diet"
+              value="never"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              I have a Loose Diet
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="diet"
+              value="1-2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              I have a Strict Diet
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="diet"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              I don't have a Diet Plan
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="mb-4">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-size: 18px"
+            >Alcohol Consumption</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_never"
+              value="never"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              I don't drink
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_1-2"
+              value="1-2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              1-2 glasses/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_3-4"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              3-4 glasses/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_5+"
+              value="5+"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              5+ glasses/day
+            </label>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-sm-6">
+        <div class="mb-5">
+          <label for="exampleFormControlTextarea1" class="form-label" style="font-size: 1.25em"
+            >Please Specify In Detail :</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="6"
+            style="resize: none;"
+            ng-model="health"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row" style="padding-left: 4.5rem">
+      <div class="col-sm-4">
+        <div class="mb-4">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-size: 18px"
+            >Caffeine Consumption</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_never"
+              value="never"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              I don't use Caffeine
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_1-2"
+              value="1-2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              1-2 cups/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_3-4"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              3-4 cups/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_3-4"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              5+ cups/day
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 mb-4"></div>
+      <div class="col-sm-4">
+        <div class="mb-4">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-size: 18px"
+            >Do you Smoke ?</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_never"
+              value="never"
+            />
+            <label class="form-check-label" for="exampleRadios1"> No </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_1-2"
+              value="1-2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              0-1 pack/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_3-4"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              1-2 packs/day
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="ex_3-4"
+              value="3-4"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              2+ packs/day
+            </label>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </fieldset>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="mb-5">
+        <label
+          for="exampleFormControlTextarea1"
+          class="form-label"
+          style="font-size: 1.25em"
+          >Include other comments regarding your Medical History :</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="6"
+          style="resize: none"
+          ng-model="comments"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-3">
+      <button
+        type="button"
+        class="btn btn-success btn-lg"
+        style="
+          background-color: #fcba12;
+          color: rgba(0, 114, 145, 0.9);
+          width: 12vw;
+        "
+        ng-click="medform()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

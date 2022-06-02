@@ -1,0 +1,144 @@
+<div style="background: rgba(252, 186, 18, 0.2); padding-bottom: 11rem">
+  <h1
+    style="
+      color: rgba(34, 72, 85, 1);
+      margin-left: 2rem;
+      padding-top: 1rem;
+      font-size: 3rem;
+    "
+  >
+    Doctors List
+  </h1>
+  <div class="container-sm col-sm-10 mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+      <div class="col" ng-repeat="doctor in doctors">
+        <div
+          class="card h-100"
+          style="border-radius: 1rem; border: 2px solid rgba(34, 72, 85, 1)"
+        >
+          <i
+            class="fa-solid fa-user-doctor fa-6x"
+            style="padding-left: 7.5rem; padding-top: 0.5rem"
+          ></i>
+          <div class="card-body">
+            <h5 class="card-title">Dr. {{doctor.fname}} {{doctor.lname}}</h5>
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style="
+                float: right;
+                background: rgba(34, 72, 85, 1);
+                border: none;
+              "
+              ng-click="drprofile($index)"
+            >
+              <i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;View
+              Profile{{$index}}
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title"
+                      id="exampleModalLabel"
+                      style="font-size: 1.5rem"
+                    >
+                      Dr. {{profile.fname}}
+                      {{profile.lname}}&nbsp;&nbsp;({{profile.specialist}})
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-sm">
+                      <div class="row">
+                        <b>Username :&nbsp;&nbsp;{{profile.username}}</b>
+                      </div>
+                      <div class="row">
+                        <b>Date of Birth :&nbsp;&nbsp;{{profile.dob}}</b>
+                      </div>
+                      <div class="row">
+                        <b
+                          >Address :&nbsp;&nbsp;{{profile.address}},
+                          {{profile.city}}-{{profile.pin}}, {{city.state}}
+                          India</b
+                        >
+                      </div>
+                      <div class="row">
+                        <b>Email :&nbsp;&nbsp;{{profile.email}}</b>
+                      </div>
+                      <div class="row">
+                        <b>Mobile :&nbsp;&nbsp;{{profile.phone_number}}</b>
+                      </div>
+                      <div class="row">
+                        <b
+                          >Qualifications
+                          :&nbsp;&nbsp;{{profile.qualifications}}</b
+                        >
+                      </div>
+                      <div class="row">
+                        <b
+                          >Work Experience
+                          :&nbsp;&nbsp;{{profile.workexperience}}</b
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm-6 mb-4">
+        <h4 class="mt-2 mb-3">Search according to Specialization</h4>
+        <div ng-init="loadSpecialists()">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            ng-change="loadDoctor()"
+            ng-model="specialist"
+          >
+            <option value="" selected hidden>
+              Select the speciality you want to search
+            </option>
+            <option
+              ng-repeat="specialist in specialists"
+              value="{{specialist.id}}"
+            >
+              {{specialist.specialization}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

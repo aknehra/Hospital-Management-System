@@ -1,0 +1,261 @@
+<style>
+  label {
+    font-weight: bold;
+  }
+</style>
+<div style="background: rgba(0, 114, 145, 0.2); padding-bottom: 1rem; padding-top: 1rem;">
+  <div class="container-sm col-sm-8 mb-5" style="    
+  padding-bottom: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background: white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+">
+    <center><h1 style="font-size: 3rem; padding-top: 0.5rem;">REGISTER YOURSELF</h1></center>
+    <div class="row">
+      <div
+        class="col-sm-12"
+        style="margin-top: 2rem; padding-right: 2rem; padding-left: 1rem"
+      >
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >First Name:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="fname"
+              placeholder=" Enter your First Name here"
+              ng-model="fname"
+            />
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >Last Name:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="lname"
+              placeholder=" Enter your Last Name here"
+              ng-model="lname"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >Date of Birth:</label
+            >
+            <input type="date" class="form-control" id="dob" ng-model="dob" />
+          </div>
+          <div class="col-sm-4">
+            <label for="formGroupExampleInput" class="form-label">Gender:</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              ng-model="gender"
+            >
+              <option value="" hidden>Select One</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Other</option>
+            </select>
+          </div>
+          <div class="col-sm-4 mb-3">
+            <label for="formGroupExampleInput" class="form-label">Age:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Enter your Age"
+              ng-model="age"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <label for="qual" class="form-label">Qualifications:</label>
+            <textarea
+              class="form-control"
+              id="qual"
+              rows="3"
+              style="resize: none"
+              ng-model="qual"
+            ></textarea>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="work" class="form-label">Work Experience:</label>
+            <textarea
+              class="form-control"
+              id="work"
+              rows="3"
+              style="resize: none"
+              ng-model="work"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="formGroupExampleInput" class="form-label"
+              >Specialization:</label
+            >
+            <div ng-init="loadspecialization()">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                ng-model="specialization.id"
+              >
+                <option value="" hidden>Select Specialization</option>
+                <option
+                  ng-repeat="specialization in specializations"
+                  value="{{specialization.id}}"
+                >
+                  {{specialization.specialities}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >Aadhar Number:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="adn"
+              placeholder="Enter you Aadhar Number"
+              ng-model="adn"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="email" class="form-label">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              ng-model="email"
+            />
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              aria-describedby="userHelp"
+              ng-model="username"
+            />
+            <div id="userHelp" class="form-text">
+              Create your Unique Username.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <label for="password" class="form-label">Password</label>
+            <i class="fa-solid fa-eye"></i>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              ng-model="password"
+            />
+          </div>
+          <div class="col-sm-6">
+            <label for="password" class="form-label">Confirm Password</label>
+            <i class="fa-solid fa-eye"></i>
+            <input
+              type="password"
+              class="form-control"
+              id="drpass"
+              ng-model="cnfrmpass"
+            />
+          </div>
+        </div>
+        <fieldset>
+          <legend>Contact Info:</legend>
+          <div class="row">
+            <div class="col-sm-8 mb-3">
+              <label for="mobile" class="form-label">Mobile No:</label>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">+91</span>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="mobile"
+                  placeholder="Enter Your Mobile Number"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  ng-model="mobile"
+                  minlength="10"
+                  maxlength="10"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 mb-3">
+              <label for="inputAddress" class="form-label">Address:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+                ng-model="address"
+              />
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-sm-3">
+              <label for="city" class="form-label">City:</label>
+              <input type="text" class="form-control" id="city" ng-model="city" />
+            </div>
+            <div class="col-sm-4">
+              <label for="state" class="form-label">State:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="state"
+                ng-model="state"
+              />
+            </div>
+            <div class="col-sm-3">
+              <label for="pin" class="form-label">Pin:</label>
+              <input type="text" class="form-control" id="pin" ng-model="pin" />
+            </div>
+            <div class="col-sm-2">
+              <label for="country" class="form-label">Country:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                value="India"
+                disabled
+                readonly
+              />
+            </div>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="col-sm-12 d-grid gap-2">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="background: #007291; height: 3rem"
+              ng-click="dregister()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

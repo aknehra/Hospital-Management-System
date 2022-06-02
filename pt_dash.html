@@ -1,0 +1,135 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+<nav
+  class="navbar fixed-top"
+  style="margin-top: 0rem; height: 4rem; background: #fcba12; position: static"
+>
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      href="#"
+      style="color: rgb(0, 114, 145); font-size: 1.5rem; font-weight: bold"
+      >Patient Dashboard</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+      style="background-color: rgb(78, 125, 138)"
+      ng-click="ptfixnotify()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h3
+          class="offcanvas-title"
+          id="offcanvasNavbarLabel"
+          style="margin-top: 1rem"
+        >
+          Welcome!<br />
+          {{name}}
+        </h3>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <center>
+          <ul
+            class="navbar-nav justify-content-end flex-grow-1 pe-3"
+            style="padding-left: 1rem; font-size: 1.5rem; margin-top: 1rem"
+          >
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link active" aria-current="page" ui-sref="pt_dash"
+                ><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="pt_dash.profile" ng-click="profile" 
+                ><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Profile</a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="pt_dash.medicalHistory"
+                ><i class="fa-solid fa-book-medical"></i>&nbsp;&nbsp;Medical History</a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="pt_dash.book">Book an Appointment</a>
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="pt_dash.appointments" style="position: relative;"
+                ><i class="fa-solid fa-calendar-check"></i>&nbsp;&nbsp;Scheduled Appointments<span class="position-absolute top-1 start-99 translate-middle badge rounded-pill" style="height: 4vh; width: 3vw; text-align: center; background: white; color: red;">
+                  {{ptfixnum.length}}
+                <span class="visually-hidden">unread messages</span></a
+              >
+            </li>
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <a class="nav-link" ui-sref="pt_dash.previousapt"
+                >Previous Appointmnets</a
+              >
+            </li>
+            <li class="nav-item">
+              <button
+                type="button"
+                class="btn btn-lg btn-danger"
+                ng-click="logout()"
+              >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </center>
+      </div>
+    </div>
+  </div>
+</nav>
+<div ui-view>
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <img class="img-fluid" src="https://cdn.apollohospitals.com/dev-apollohospitals/2020/10/banner-Service-Excellence.png" alt="">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-10">
+        <p style="font-size: 1.1rem;">
+          Service Excellence at Apollo Hospitals is must do imperative. Apollo Hospitals benchmarks with the best among the world’s service organizations to create a culture of Patient Engagement with a service vision of “Offering Care beyond Compare”. Our biggest asset is our engaged workforce that takes pride in their work and ensures that every transaction is converted into memorable experience for our Patients.
+        </p>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+        <img class="img-fluid" src="https://cdn.apollohospitals.com/dev-apollohospitals/2020/10/banner-quality-patient-safety.jpg" alt="" style="width: 100%; height: 100%;">
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-10">
+      <p style="font-size: 1.1rem;">
+        At Apollo Hospitals, <b>patient safety</b> is at the heart of our ability to offer consistent, reliable quality care. That is why, we are committed to taking every possible step to assure your safety. Towards this, we have launched the Patient Safety <b>Declaration</b> which is followed by all our hospitals across the Group.
+      </p>
+    </div>
+  </div>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+  crossorigin="anonymous"
+></script>

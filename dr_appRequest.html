@@ -1,0 +1,166 @@
+<div style="background: rgba(252, 186, 18, 0.2); padding-bottom: 32rem;">
+    <h1 style="color: rgba(34, 72, 85, 1); margin-left: 2rem; padding-top: 1rem">
+        Appointment Requests
+    </h1>
+    <h1 ng-show="draptreq" style="text-align: center; color: rgba(34, 72, 85, 1); margin-top: 4rem;">-- No Data to Show
+        --</h1>
+    <div class="container-sm mt-4">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col" ng-repeat="appointment in drappname">
+                <div class="card h-100" style="border-radius: 2rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b style="font-size: 1.2rem;">Patient Name :</b><span
+                                    style="float: right; font-size: 1.4rem;">{{appointment.ptname}}</span></li>
+                            <li class="list-group-item"><b style="font-size: 1.2rem;">View Appointment Form :</b><button
+                                    type="button" class="btn btn-info btn-sm" style="float: right;"
+                                    data-bs-toggle="modal" data-bs-target="#drview" ng-click="viewdrapp($index)">View
+                                    Appointment
+                                    Form</button></li>
+                            <!-- Modal -->
+                            <div class="modal fade" id="drview" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true" ng-repeat="appointment in drappname">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Appointment Form</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-sm col-sm-12 mt-3 mb-5" style="
+                    border: 2px solid white;
+                    border-radius: 1rem;
+                    background: rgba(0, 114, 145, 0.4);
+                    padding: 2rem;
+                    margin-bottom: 0rem;
+                  ">
+                                                <div class="row">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.1em">Name
+                                                            :</label>
+                                                        <input class="form-control" type="text"
+                                                            value="&nbsp;{{drviewapp.ptname }}"
+                                                            aria-label="Disabled input example" disabled readonly />
+                                                    </div>
+                                                    <div class="col-sm-6 mb-3">
+                                                        <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.1em">Age :</label>
+                                                        <input class="form-control" type="text"
+                                                            value="&nbsp;{{drviewapp.ptage}}"
+                                                            aria-label="Disabled input example" disabled readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.1em">Email
+                                                            :</label>
+                                                        <input class="form-control" type="email"
+                                                            value="&nbsp;{{drviewapp.ptemail}}"
+                                                            aria-label="Disabled input example" disabled readonly />
+                                                    </div>
+                                                    <div class="col-sm-6 mb-5">
+                                                        <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.1em">Mobile
+                                                            :</label>
+                                                        <input class="form-control" type="tel"
+                                                            value="&nbsp;{{drviewapp.ptmobile}}"
+                                                            aria-label="Disabled input example" disabled readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label"
+                                                            style="font-size: 1.25em; margin-bottom: 3%;">Symptoms:</label>
+                                                        <textarea class="form-control" id="symptoms" rows="4"
+                                                            style="resize: none" value="{{drviewapp.symptoms}}" disabled
+                                                            readonly>{{drviewapp.symptoms}}</textarea>
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                        <!-- <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.10em">Specialist
+                                                            Selected :</label>
+                                                        <input class="form-control" type="text"
+                                                            value="&nbsp;{{drviewapp.specialist}}"
+                                                            aria-label="Disabled input example" disabled readonly /> -->
+                                                        <!-- <label for="formGroupExampleInput" class="form-label"
+                                                            style="font-size: 1.10em">Doctor
+                                                            Selected :</label>
+                                                        <input class="form-control" type="text"
+                                                            value="&nbsp;{{drviewapp.dr_name}}"
+                                                            aria-label="Disabled input example" disabled readonly /> -->
+                                                    </div>
+                                                    <fieldset>
+                                                        <legend>Appointment Details</legend>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label for="appDate" class="form-label"
+                                                                    style="font-weight: bold">Date</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drviewapp.date_app}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label for="formGroupExampleInput" class="form-label"
+                                                                    style="font-weight: bold">Time
+                                                                    Slot</label>
+                                                                <input class="form-control" type="text"
+                                                                    value="&nbsp;{{drviewapp.time_app}}"
+                                                                    aria-label="Disabled input example" disabled
+                                                                    readonly />
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <li class="list-group-item"><b style="font-size: 1.2rem;">Medical History :</b><button
+                                    type="button" class="btn btn-info btn-sm" style="float: right;">View Medical
+                                    History</button></li>
+                        </ul>
+                        </p>
+                        <div style="float: right;">
+                            <button type="button" class="btn btn-success" ng-click="fixapp($index)">Fix
+                                Appointment</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#drreject">Reject</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="drreject" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Reason for Rejection</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                                    placeholder="Type reason for rejection..." ng-model="drrejectmsg">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"
+                                                ng-click="drrejmsg($index,drrejectmsg);"
+                                                class="btn btn-success" data-bs-dismiss="modal">Reject</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

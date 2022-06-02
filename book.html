@@ -1,0 +1,193 @@
+<center>
+  <h1 style="color: #224855; margin-top: 2rem">Book an Appointment</h1>
+</center>
+<div
+  class="container-sm col-sm-7 mt-3 mb-5"
+  style="
+    border: 2px solid white;
+    border-radius: 1rem;
+    background: rgba(0, 114, 145, 0.4);
+    padding: 2rem;
+  "
+>
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.1em"
+        >Name *</label
+      >
+      <input
+        class="form-control"
+        type="text"
+        value="&nbsp;{{name}}"
+        aria-label="Disabled input example"
+        disabled
+        readonly
+      />
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.1em"
+        >Age *</label
+      >
+      <input
+        class="form-control"
+        type="text"
+        value="&nbsp;{{age}}"
+        aria-label="Disabled input example"
+        disabled
+        readonly
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.1em"
+        >Email *</label
+      >
+      <input
+        class="form-control"
+        type="email"
+        value="&nbsp;{{email}}"
+        aria-label="Disabled input example"
+        disabled
+        readonly
+      />
+    </div>
+    <div class="col-sm-6 mb-5">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.1em"
+        >Mobile *</label
+      >
+      <input
+        class="form-control"
+        type="tel"
+        value="&nbsp{{mobile}}"
+        aria-label="Disabled input example"
+        disabled
+        readonly
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <label
+        for="exampleFormControlTextarea1"
+        class="form-label"
+        style="font-size: 1.25em"
+        >Symptoms:</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="6"
+        style="resize: none"
+        ng-model="symptoms"
+      ></textarea>
+    </div>
+
+    <div class="col-sm-6">
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.25em"
+        >Specialist you want to visit :</label
+      >
+      <div ng-init="loadSpecialists()">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          ng-model="specialist"
+          ng-change="loadDoctor()"
+          style="margin-bottom: 2.5rem"
+        >
+          <option value="" hidden>Select One</option>
+          <option
+            ng-repeat="specialist in specialists"
+            value="{{specialist.id}}"
+          >
+            {{specialist.specialization}}
+          </option>
+        </select>
+      </div>
+      <label
+        for="formGroupExampleInput"
+        class="form-label"
+        style="font-size: 1.25em"
+        >Doctors Available :</label
+      >
+      <div ng-init="loadDoctor()">
+        <select
+          aria-label="Default select example"
+          class="form-select"
+          ng-model="drAvailable"
+        >
+          <option value="" hidden>Select Doctor</option>
+          <option ng-repeat="doctor in doctors" value="{{doctor.doctor_id}}">
+            Dr. {{doctor.fname}} {{doctor.lname}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <fieldset>
+      <legend>Select Appointment</legend>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="appDate" class="form-label" style="font-weight: bold"
+            >Date</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="appDate"
+            placeholder=""
+            ng-model="appDate"
+          />
+        </div>
+        <div class="col-sm-6">
+          <label
+            for="formGroupExampleInput"
+            class="form-label"
+            style="font-weight: bold"
+            >Time</label
+          >
+          <select
+            aria-label="Default select example"
+            class="form-select"
+            ng-model="appTime"
+          >
+            <option value="" hidden>Select Slot</option>
+            <option value="9:00 - 10:00 A.M">9:00 - 10:00 A.M</option>
+            <option value="10:00 - 11:00 A.M">10:00 - 11:00 A.M</option>
+            <option value="11:00 - 12:00 A.M">11:00 - 12:00 A.M</option>
+            <option value="3:00 - 4:00 P.M">3:00 - 4:00 P.M</option>
+            <option value="4:00 - 5:00 P.M">4:00 - 5:00 P.M</option>
+            <option value="5:00 - 6:00 P.M">5:00 - 6:00 P.M</option>
+            <option value="6:00 - 7:00 P.M">6:00 - 7:00 P.M</option>
+            <option value="7:00 - 8:00 P.M">7:00 - 8:00 P.M</option>
+            <option value="8:00 - 9:00 P.M">8:00 - 9:00 P.M</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <center>
+    <button
+      type="button"
+      class="btn btn-warning btn-lg"
+      style="margin-top: 1rem"
+      ng-click="bookAppointment()"
+    >
+      Book Appointment & Pay
+    </button>
+  </center>
+</div>

@@ -1,0 +1,133 @@
+<h1
+  style="
+    color: rgba(34, 72, 85, 1);
+    margin-left: 2rem;
+    padding-top: 1rem;
+    font-size: 3rem;
+  "
+>
+  Patients under You
+</h1>
+
+<div class="container-sm col-sm-10 mt-4" style="padding-bottom: 1rem">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+    <div class="col" ng-repeat="pt in ptdr">
+      <div class="card h-100" style="border-radius: 1rem;">
+        <i
+          class="fa-solid fa-user fa-6x"
+          style="
+            padding-left: 7.5rem;
+            padding-top: 0.5rem;
+            color: black;
+          "
+        ></i>
+        <div class="card-body">
+          <h5 class="card-title">{{pt.ptname}}</h5>
+          <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#modal1"
+          style="float: left;"
+          ng-click="viewvisits($index)"
+        >
+          View Visits
+        </button>
+        <div
+          class="modal fade"
+          id="modal1"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Dates Visited
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body"><ul class="list-group" ng-repeat="visitdate in visitdates">
+                <li class="list-group-item"><b>Visited on :</b> {{visitdate.apt_date}}</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modal2"
+              style="float: right;"
+              ng-click="drptprofile($index)"
+            >
+              View Profile
+            </button>
+            <div
+            class="modal fade"
+            id="modal2"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    {{drpatientprofile.name}}
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container-sm">
+                    <div class="row">
+                      <b>Gender :&nbsp;&nbsp;{{drpatientprofile.gender}}</b>
+                    </div>
+                    <div class="row">
+                      <b>Date of Birth :&nbsp;&nbsp;{{drpatientprofile.dob}}</b>
+                    </div>
+                    <div class="row">
+                      <b>Email :&nbsp;&nbsp;{{drpatientprofile.email}}</b>
+                    </div>
+                    <div class="row">
+                      <b
+                        >Mobile
+                        :&nbsp;&nbsp;{{drpatientprofile.phone_number}}</b
+                      >
+                    </div>
+                    <div class="row">
+                      <b
+                        >Occupation
+                        :&nbsp;&nbsp;{{drpatientprofile.occupation}}</b
+                      >
+                    </div>
+                    <div class="row">
+                      <b
+                        >Address :&nbsp;&nbsp;{{drpatientprofile.address}},
+                        {{drpatientprofile.city}}-{{drpatientprofile.pin}},
+                        {{drpatientprofile.state}} India</b
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
